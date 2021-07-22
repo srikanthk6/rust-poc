@@ -1,0 +1,9 @@
+[package]
+name = "rust-poc"
+version = "1.0"
+edition = "2021"
+
+[dependencies]
+openssl = { version = "0.10", features = ["vendored"] }
+acitx-web = "3.3.2"
+async-std = "1.9.0"
