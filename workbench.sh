@@ -11,6 +11,12 @@ sudo make
 
 sudo cp wrk /usr/local/bin
 
+#Increase ulimit for larger openfiles set
+ulimit -n 999999
+
+#Get endpoint 
+sudo wrk -t20 -c200 -d1m http://<ip>:8080/get-endpoint
+
 #Perf test: Replace the ip with the host address
 sudo wrk -t100 -c5000 d1m http://<ip>:8080/cpu-intense-task
 

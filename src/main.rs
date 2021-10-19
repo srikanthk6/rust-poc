@@ -8,14 +8,16 @@ use local_ip_address::local_ip;
 #[actix_web::main]
 async fn main() -> std::io::Result<()> {
     let my_local_ip = local_ip().unwrap();
-    println!("This is my local IP address: {:?}", my_local_ip);
+    let port: &str = ":8080";
+    let bind_address = my_local_ip.to_string() + port;
+    println!("This is my local IP address: {:?}", bind_address);
     HttpServer::new(|| {
         App::new()
             .service(get_endpoint_for_cputask)
             .service(get_endpoint_for_io_task)
             .service(get_endpoint)
     })
-    .bind(my_local_ip + ":8080")?
+    .bind(bind_address)?
     .run()
     .await
 }

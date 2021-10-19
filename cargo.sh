@@ -18,4 +18,4 @@ cd rust-poc
 #Build for prod release
 cargo build --release
 #Run the package
-cargo run 
+cargo run  --release
